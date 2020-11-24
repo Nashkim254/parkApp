@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "165973833571",
+    "firebase_url": "https://parkapp-647fd.firebaseio.com",
+    "project_id": "parkapp-647fd",
+    "storage_bucket": "parkapp-647fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165973833571:android:fc8882e10015802f414556",
+        "android_client_info": {
+          "package_name": "com.example.gmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165973833571-id2kfmimpse0b46ntrh3chsol3g16m17.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gmap",
+            "certificate_hash": "c2b9f49f5697028d48abe3611830370c3ceb001e"
+          }
+        },
+        {
+          "client_id": "165973833571-u1ksn0t9fspdi4leut2ct6cncll7u6e3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRrZabK6KLqNpKGjhwHIEq-msAGKeAOF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165973833571-u1ksn0t9fspdi4leut2ct6cncll7u6e3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
