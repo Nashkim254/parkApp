@@ -1,4 +1,4 @@
-package com.example.park_app
+package com.example.gmap
 
 import io.flutter.embedding.android.FlutterActivity
 
