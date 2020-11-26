@@ -1,3 +1,4 @@
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -38,16 +39,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
           content: Text("Name Is Empty "),
         ),
       );
-    } else if (userName.text.length < 6) {
+    } else if (userName.text.length < 3) {
       _scaffoldKey.currentState.showSnackBar(
         SnackBar(
-          content: Text("Name Must Be 6 "),
+          content: Text("Name Must not be less than 3 "),
         ),
       );
-    } else if (phoneNumber.text.length < 11 || phoneNumber.text.length > 11) {
+    } else if (phoneNumber.text.length < 10 || phoneNumber.text.length > 10) {
       _scaffoldKey.currentState.showSnackBar(
         SnackBar(
-          content: Text("Phone Number Must Be 11 "),
+          content: Text("Phone Number Must Be 10 "),
         ),
       );
     } else {

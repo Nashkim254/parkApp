@@ -26,6 +26,7 @@ class ProductProvider with ChangeNotifier {
           newList.add(userModel);
         }
         userModelList = newList;
+        notifyListeners();
       },
     );
   }

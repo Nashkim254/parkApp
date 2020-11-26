@@ -22,7 +22,6 @@ class Search extends StatefulWidget {
 ProductProvider productProvider;
 
 class _SearchState extends State<Search> {
-  final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
   Widget _buildUserAccountsDrawerHeader() {
     List<UserModel> userModel = productProvider.userModelList;
     return Column(
@@ -135,6 +134,7 @@ class _SearchState extends State<Search> {
       ),
     );
   }
+  final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -142,6 +142,7 @@ class _SearchState extends State<Search> {
     final placesProvider = Provider.of<Future<List<Place>>>(context);
     final geoService = GeoLocatorService();
     final markerService = MarkerService();
+    productProvider = Provider.of<ProductProvider>(context);
 
     return FutureProvider(
       create: (context) => placesProvider,

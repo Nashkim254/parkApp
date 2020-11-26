@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gmap/models/usermodel.dart';
+import 'package:gmap/provider/user_provider.dart';
 import 'package:gmap/screens/search.dart';
 import 'package:gmap/widgets/mybutton.dart';
+import 'package:provider/provider.dart';
 
 class ContactUs extends StatefulWidget {
   @override
@@ -55,7 +58,20 @@ class _ContactUsState extends State<ContactUs> {
       ),
     );
   }
+// @override
+//   void initState() {
+//     ProductProvider provider;
+//     provider = Provider.of<ProductProvider>(context, listen: false);
+//     List<UserModel> user = provider.userModelList;
+//     user.map((e) {
+//       name = e.userName;
+//       email = e.userEmail;
 
+//       return Container();
+//     }).toList();
+
+//     super.initState();
+//   }
   @override
   Widget build(BuildContext context) {
     print(name);
