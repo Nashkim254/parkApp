@@ -11,11 +11,11 @@ import 'package:gmap/services/places_service.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
-void main()async{ 
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
-  }
+}
 
 class MyApp extends StatelessWidget {
   final locatorService = GeoLocatorService();
@@ -27,21 +27,26 @@ class MyApp extends StatelessWidget {
       providers: [
         FutureProvider(create: (context) => locatorService.getLocation()),
         FutureProvider(create: (context) {
-          ImageConfiguration configuration = createLocalImageConfiguration(context);
-          return BitmapDescriptor.fromAssetImage(configuration, 'assets/images/parking-icon.png');
+          ImageConfiguration configuration =
+              createLocalImageConfiguration(context);
+          return BitmapDescriptor.fromAssetImage(
+              configuration, 'assets/images/parking-icon.png');
         }),
-        ProxyProvider2<Position,BitmapDescriptor,Future<List<Place>>>( 
-          update: (context,position,icon,places){
-            return (position !=null) ? placesService.getPlaces(position.latitude, position.longitude,icon) :null;
+        ProxyProvider2<Position, BitmapDescriptor, Future<List<Place>>>(
+          update: (context, position, icon, places) {
+            return (position != null)
+                ? placesService.getPlaces(
+                    position.latitude, position.longitude, icon)
+                : null;
           },
         ),
-        
         ChangeNotifierProvider<ProductProvider>(
           create: (context) => ProductProvider(),
         ),
       ],
       child: MaterialApp(
         title: 'Parking App',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

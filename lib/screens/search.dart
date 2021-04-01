@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:gmap/models/usermodel.dart';
 import 'package:gmap/provider/user_provider.dart';
 import 'package:gmap/screens/about.dart';
+import 'package:gmap/screens/add_creditcard.dart';
 import 'package:gmap/screens/contactus.dart';
 import 'package:gmap/screens/profilescreen.dart';
 import 'package:gmap/services/geolocator_service.dart';
@@ -12,6 +13,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 import '../models/place.dart';
 
 class Search extends StatefulWidget {
@@ -52,6 +54,7 @@ class _SearchState extends State<Search> {
 
   bool contactUsColor = false;
   bool profileColor = false;
+  bool slots = false;
   MediaQueryData mediaQuery;
   Widget _buildMyDrawer() {
     return Drawer(
@@ -134,6 +137,7 @@ class _SearchState extends State<Search> {
       ),
     );
   }
+
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   @override
@@ -244,7 +248,7 @@ class _SearchState extends State<Search> {
                                                     (context, meters, wiget) {
                                                   return (meters != null)
                                                       ? Text(
-                                                          '${places[index].vicinity} \u00b7 ${(meters / 1609).round()} mi')
+                                                          '${places[index].vicinity} \u00b7 ${(meters / 1000).round()} Km')
                                                       : Container();
                                                 },
                                               )
@@ -266,11 +270,18 @@ class _SearchState extends State<Search> {
                                                       .lng);
                                             },
                                           ),
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        AddCard()));
+                                          },
                                         ),
                                       ),
                                     );
                                   }),
-                            )
+                            ),
                           ],
                         )
                       : Center(child: CircularProgressIndicator());

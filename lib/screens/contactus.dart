@@ -50,28 +50,32 @@ class _ContactUsState extends State<ContactUs> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            name,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
+          name == null
+              ? Text('Dummy')
+              : Text(
+                  name,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
         ],
       ),
     );
   }
-// @override
-//   void initState() {
-//     ProductProvider provider;
-//     provider = Provider.of<ProductProvider>(context, listen: false);
-//     List<UserModel> user = provider.userModelList;
-//     user.map((e) {
-//       name = e.userName;
-//       email = e.userEmail;
 
-//       return Container();
-//     }).toList();
+  @override
+  void initState() {
+    ProductProvider provider;
+    provider = Provider.of<ProductProvider>(context, listen: false);
+    List<UserModel> user = provider.userModelList;
+    user.map((e) {
+      name = e.userName;
+      email = e.userEmail;
 
-//     super.initState();
-//   }
+      return Container();
+    }).toList();
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     print(name);
@@ -105,7 +109,7 @@ class _ContactUsState extends State<ContactUs> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Sent Us Your Message",
+                "Send Us Your Message",
                 style: TextStyle(
                   color: Color(0xff746bc9),
                   fontSize: 28,

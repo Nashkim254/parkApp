@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -311,7 +310,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       }
                       var myDoc = snapshot.data.docs;
                       myDoc.forEach((checkDocs) {
-                        if (checkDocs.data()["UserId"] == userUid) {
+                        if (checkDocs.data() == null) {
+                          return Center(child: CircularProgressIndicator());
+                        } else if (checkDocs.data()["UserId"] == userUid) {
                           userModel = UserModel(
                             userEmail: checkDocs.data()["UserEmail"],
                             userImage: checkDocs.data()["UserImage"],
