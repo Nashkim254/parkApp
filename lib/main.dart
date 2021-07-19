@@ -8,6 +8,7 @@ import 'package:gmap/screens/login.dart';
 import 'package:gmap/screens/search.dart';
 import 'package:gmap/services/geolocator_service.dart';
 import 'package:gmap/services/places_service.dart';
+import 'package:gmap/services/usermanagement.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -45,22 +46,12 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Parking App',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Search();
-            } else {
-              return Login();
-            }
-          },
-        ),
-      ),
+          title: 'Parking App',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: Usermanagement().handleAuth()),
     );
   }
 }

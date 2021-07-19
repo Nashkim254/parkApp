@@ -9,6 +9,7 @@ import 'package:gmap/screens/payments.dart';
 import 'package:gmap/screens/profilescreen.dart';
 import 'package:gmap/services/geolocator_service.dart';
 import 'package:gmap/services/marker_service.dart';
+import 'package:gmap/services/usermanagement.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
@@ -47,7 +48,7 @@ class _SearchState extends State<Search> {
 
   double height, width;
   bool homeColor = true;
-
+  bool adminColor = false;
   bool checkoutColor = false;
 
   bool aboutColor = false;
@@ -74,6 +75,20 @@ class _SearchState extends State<Search> {
             },
             leading: Icon(Icons.home),
             title: Text("Home"),
+          ),
+          ListTile(
+            selected: adminColor,
+            onTap: () {
+              setState(() {
+                adminColor = true;
+                aboutColor = false;
+                contactUsColor = false;
+                homeColor = false;
+                profileColor = false;
+                checkoutColor = false;
+              });
+              Usermanagement().authorizeAccess(context);
+            },
           ),
           ListTile(
             selected: aboutColor,
