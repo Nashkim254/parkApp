@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gmap/screens/add_car.dart';
 import 'package:gmap/screens/add_user.dart';
 
 class AdminPage extends StatelessWidget {
@@ -31,6 +32,30 @@ class AdminPage extends StatelessWidget {
                       ),
                       Text(
                         'Add user',
+                        style: TextStyle(
+                          fontSize: 17.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Card(
+              margin: EdgeInsets.all(8.0),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => AddCar()));
+                },
+                child: Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.car_rental,
+                          size: 70.0, color: Colors.lightGreen),
+                      Text(
+                        'Add Car',
                         style: TextStyle(
                           fontSize: 17.0,
                         ),
