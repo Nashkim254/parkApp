@@ -4,8 +4,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:gmap/models/usermodel.dart';
 import 'package:gmap/provider/user_provider.dart';
 import 'package:gmap/screens/about.dart';
-import 'package:gmap/screens/add_creditcard.dart';
 import 'package:gmap/screens/contactus.dart';
+import 'package:gmap/screens/payments.dart';
 import 'package:gmap/screens/profilescreen.dart';
 import 'package:gmap/services/geolocator_service.dart';
 import 'package:gmap/services/marker_service.dart';
@@ -107,7 +107,7 @@ class _SearchState extends State<Search> {
                 ),
               );
             },
-            leading: Icon(Icons.info),
+            leading: Icon(Icons.person),
             title: Text("Profile"),
           ),
           ListTile(
@@ -175,7 +175,7 @@ class _SearchState extends State<Search> {
                 builder: (_, places, __) {
                   var markers = (places != null)
                       ? markerService.getMarkers(places)
-                      : List<Marker>();
+                      : <Marker>[];
                   return (places != null)
                       ? Column(
                           children: <Widget>[
@@ -275,7 +275,7 @@ class _SearchState extends State<Search> {
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        AddCard()));
+                                                        Payment()));
                                           },
                                         ),
                                       ),
