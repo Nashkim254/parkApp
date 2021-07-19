@@ -52,10 +52,10 @@ class _SearchPage extends State<SearchPage>
   }
 
   void submit(String searchValue) async {
-    Future<QuerySnapshot> users = Firestore.instance
+    Future<QuerySnapshot> users = FirebaseFirestore.instance
         .collection("vehicles")
         .where('vno', isGreaterThanOrEqualTo: searchValue)
-        .getDocuments();
+        .get();
 
     setState(() {
       userDocs = users;

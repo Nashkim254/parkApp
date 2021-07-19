@@ -7,6 +7,7 @@ import 'package:gmap/screens/about.dart';
 import 'package:gmap/screens/contactus.dart';
 import 'package:gmap/screens/payments.dart';
 import 'package:gmap/screens/profilescreen.dart';
+import 'package:gmap/screens/search_vehicle.dart';
 import 'package:gmap/services/geolocator_service.dart';
 import 'package:gmap/services/marker_service.dart';
 import 'package:gmap/services/usermanagement.dart';
@@ -50,7 +51,7 @@ class _SearchState extends State<Search> {
   bool homeColor = true;
   bool adminColor = false;
   bool checkoutColor = false;
-
+  bool searchColor = false;
   bool aboutColor = false;
 
   bool contactUsColor = false;
@@ -124,6 +125,26 @@ class _SearchState extends State<Search> {
             },
             leading: Icon(Icons.person),
             title: Text("Profile"),
+          ),
+          ListTile(
+            selected: searchColor,
+            onTap: () {
+              setState(() {
+                searchColor = true;
+                aboutColor = false;
+                contactUsColor = false;
+                homeColor = false;
+                profileColor = false;
+                checkoutColor = false;
+              });
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (ctx) => SearchPage(),
+                ),
+              );
+            },
+            leading: Icon(Icons.search),
+            title: Text("Search"),
           ),
           ListTile(
             selected: contactUsColor,
