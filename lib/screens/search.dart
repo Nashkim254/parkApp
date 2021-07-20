@@ -77,6 +77,7 @@ class _SearchState extends State<Search> {
             leading: Icon(Icons.home),
             title: Text("Home"),
           ),
+          Divider(),
           ListTile(
             selected: adminColor,
             onTap: () {
@@ -91,6 +92,7 @@ class _SearchState extends State<Search> {
               Usermanagement().authorizeAccess(context);
             },
           ),
+          Divider(),
           ListTile(
             selected: aboutColor,
             onTap: () {
@@ -107,6 +109,7 @@ class _SearchState extends State<Search> {
             leading: Icon(Icons.info),
             title: Text("About"),
           ),
+          Divider(),
           ListTile(
             selected: profileColor,
             onTap: () {
@@ -126,6 +129,7 @@ class _SearchState extends State<Search> {
             leading: Icon(Icons.person),
             title: Text("Profile"),
           ),
+          Divider(),
           ListTile(
             selected: searchColor,
             onTap: () {
@@ -146,6 +150,7 @@ class _SearchState extends State<Search> {
             leading: Icon(Icons.search),
             title: Text("Search"),
           ),
+          Divider(),
           ListTile(
             selected: contactUsColor,
             onTap: () {
@@ -162,6 +167,7 @@ class _SearchState extends State<Search> {
             leading: Icon(Icons.phone),
             title: Text("Contant Us"),
           ),
+          Divider(),
           ListTile(
             onTap: () {
               FirebaseAuth.instance.signOut();
