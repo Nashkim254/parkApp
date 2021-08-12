@@ -39,7 +39,7 @@ class PaymentState extends State<Payment> {
                 height: 24,
               ),
               Text(
-                'Pedro Garage',
+                'Nash Garage',
                 style: TextStyle(
                   fontSize: 34.4,
                   fontWeight: FontWeight.w700,

@@ -197,10 +197,7 @@ class _MyReciptState extends State<MyRecipt> {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  child: RaisedButton(
-                    elevation: 6,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6)),
+                  child: ElevatedButton(
                     onPressed: () {
                       Alert(
                         context: context,
@@ -232,8 +229,6 @@ class _MyReciptState extends State<MyRecipt> {
                         ],
                       ).show();
                     },
-                    color: Colors.black87,
-                    padding: EdgeInsets.symmetric(vertical: 14),
                     child: Text(
                       'DONE',
                       style: TextStyle(
