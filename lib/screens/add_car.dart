@@ -267,9 +267,12 @@ class AddCarState extends State<AddCar> {
               onPressed: () {
                 if (_formKey.currentState.validate()) {
                   register(name, phone, email, flatno, vno1, vno2, vno3, vno4);
-                  Scaffold.of(context).showSnackBar(
-                      SnackBar(content: Text('Processing Data...')));
-                  Scaffold.of(context).showSnackBar(SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Processing Data...'),
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text('Data has been saved. Press back.')));
                 }
               },
