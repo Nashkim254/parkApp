@@ -20,6 +20,10 @@ String p =
     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
 RegExp regExp = new RegExp(p);
+//validate phone
+String pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
+RegExp regExpNo = new RegExp(pattern);
+
 bool obserText = true;
 final TextEditingController email = TextEditingController();
 final TextEditingController userName = TextEditingController();
@@ -94,7 +98,7 @@ class _SignUpState extends State<SignUp> {
     } else if (userName.text.length < 6) {
       _scaffoldKey.currentState.showSnackBar(
         SnackBar(
-          content: Text("Name Must Be 6 "),
+          content: Text("Name Must Be atleast 6 "),
         ),
       );
     } else if (email.text.isEmpty) {
@@ -121,10 +125,12 @@ class _SignUpState extends State<SignUp> {
           content: Text("Password  Is Too Short"),
         ),
       );
-    } else if (phoneNumber.text.length < 11 || phoneNumber.text.length > 11) {
+    } else if (phoneNumber.text.length < 10 ||
+        phoneNumber.text.length > 10 ||
+        !regExpNo.hasMatch(phoneNumber.text)) {
       _scaffoldKey.currentState.showSnackBar(
         SnackBar(
-          content: Text("Phone Number Must Be 11 "),
+          content: Text("Please enter valid number "),
         ),
       );
     } else if (address.text.isEmpty) {
@@ -258,7 +264,6 @@ class _SignUpState extends State<SignUp> {
         children: [
           Container(
             height: 200,
-         
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
